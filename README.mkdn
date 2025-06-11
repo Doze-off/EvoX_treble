@@ -1,0 +1,28 @@
+![Evolution X](https://github.com/Evolution-X/manifest/raw/vic/Banner.png)
+
+# Initialize local repository
+```
+repo init -u https://github.com/Evolution-X/manifest -b bka --git-lfs
+```
+
+# Sync up
+```
+repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
+```
+
+# Build
+
+- Set up the build environment
+```bash
+. build/envsetup.sh
+```
+
+- Lunch a target
+```bash
+lunch lineage_codename-bp2a-user
+```
+
+- To start compiling
+```bash
+m evolution
+```

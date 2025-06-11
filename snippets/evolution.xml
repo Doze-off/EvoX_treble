@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <remote  name="evo"
+           fetch="https://github.com/Evolution-X"
+           sync-c="true"
+           sync-j="4"
+           revision="refs/heads/bka" />
+
+  <remote  name="evo-devices"
+           fetch="https://github.com/Evolution-X-Devices"
+           sync-c="true"
+           sync-j="4"
+           revision="refs/heads/bka" />
+
+  <remote  name="evo-bitbucket"
+           fetch="https://bitbucket.org/evo-x"
+           sync-c="true"
+           sync-j="4"
+           revision="refs/heads/bka" />
+
+  <remote  name="evo-main"
+           fetch="https://git.mainlining.org/EvolutionX"
+           sync-c="true"
+           sync-j="4"
+           revision="refs/heads/bka" />
+
+  <remote  name="evo-gitlab"
+           fetch="https://gitlab.com/EvoX"
+           sync-c="true"
+           sync-j="4"
+           revision="refs/heads/bka" />
+
+  <remote  name="evo-codeberg"
+           fetch="https://codeberg.org/Evolution-X"
+           sync-c="true"
+           sync-j="4"
+           revision="refs/heads/bka" />
+
+  <remote  name="github-non-los"
+           sync-c="true"
+           sync-j="4"
+           fetch="https://github.com" />
+
+  <remote  name="gitlab"
+           sync-c="true"
+           sync-j="4"
+           fetch="https://gitlab.com" />
+
+  <remote  name="bitbucket"
+           sync-c="true"
+           sync-j="4"
+           fetch="https://bitbucket.org" />
+
+  <!-- Art -->
+  <project path="art" name="art" groups="pdk" remote="evo" />
+
+  <!-- Bionic -->
+  <project path="bionic" name="bionic" groups="pdk" remote="evo" />
+
+  <!-- Bootable -->
+  <project path="bootable/deprecated-ota" name="bootable_deprecated-ota" groups="pdk-cw" remote="evo" />
+  <project path="bootable/recovery" name="bootable_recovery" groups="pdk" remote="evo" />
+
+  <!-- Build -->
+  <project path="build/bazel" name="build_bazel" groups="pdk" remote="evo" >
+    <linkfile src="bazel.WORKSPACE" dest="WORKSPACE" />
+    <linkfile src="bazel.BUILD" dest="BUILD" />
+  </project>
+
+  <project path="build/make" name="build" groups="pdk,sysui-studio" remote="evo" >
+    <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
+    <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
+    <linkfile src="core" dest="build/core" />
+    <linkfile src="envsetup.sh" dest="build/envsetup.sh" />
+    <linkfile src="target" dest="build/target" />
+    <linkfile src="tools" dest="build/tools" />
+  </project>
+
+  <project path="build/soong" name="build_soong" groups="pdk,tradefed" remote="evo" >
+    <linkfile src="root.bp" dest="Android.bp" />
+    <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
+  </project>
+
+  <!-- CodeLinaro additions -->
+  <project path="device/qcom/sepolicy_vndr/legacy-um" name="device_qcom_sepolicy_vndr" groups="qcom,lahaina" revision="bka-legacy-um" remote="evo" />
+  <project path="device/qcom/sepolicy_vndr/sm8450" name="device_qcom_sepolicy_vndr" groups="qcom,waipio-vendor" revision="bka-sm8450" remote="evo" />
+  <project path="external/ant-wireless/ant_service" name="external_ant-wireless_ant_service" groups="qcom" remote="evo" />
+  <project path="hardware/qcom-caf/sm8150/display" name="hardware_qcom_display" groups="qcom" revision="lineage-22.2-caf-sm8150" remote="evo" />
+  <project path="hardware/qcom-caf/sm8350/display" name="hardware_qcom_display" groups="qcom" revision="lineage-22.2-caf-sm8350" remote="evo" />
+  <project path="hardware/qcom-caf/sm8450/display" name="hardware_qcom_display" groups="qcom" revision="bka-sm8450" remote="evo" />
+
+  <!-- External -->
+  <!--project path="external/FadingEdgeLayout" name="external_FadingEdgeLayout" remote="evo" />-->
+  <project path="external/dtc" name="external_dtc" groups="pdk" remote="evo" />
+  <project path="external/e2fsprogs" name="external_e2fsprogs" groups="pdk" remote="evo" />
+  <project path="external/gptfdisk" name="external_gptfdisk" groups="pdk" remote="evo" />
+  <project path="external/libncurses" name="external_libncurses" remote="evo" />
+  <project path="external/mksh" name="external_mksh" groups="pdk" remote="evo" />
+  <project path="external/piex" name="external_piex" groups="pdk" remote="evo" />
+  <project path="external/tinycompress" name="external_tinycompress" groups="pdk" remote="evo" />
+  <project path="external/wpa_supplicant_8" name="external_wpa_supplicant_8" groups="pdk" remote="evo" />
+
+  <!-- Frameworks -->
+  <project path="frameworks/av" name="frameworks_av" groups="pdk,sysui-studio" remote="evo" />
+  <project path="frameworks/base" name="frameworks_base" groups="pdk-cw-fs,pdk-fs,sysui-studio" remote="evo" />
+  <project path="frameworks/libs/systemui" name="frameworks_libs_systemui" groups="pdk-cw-fs,pdk-fs,sysui-studio" remote="evo" />
+  <project path="frameworks/native" name="frameworks_native" groups="pdk" remote="evo" />
+  <project path="frameworks/opt/telephony" name="frameworks_opt_telephony" groups="pdk,sysui-studio" remote="evo" />
+
+  <!-- Hardware -->
+  <project path="hardware/interfaces" name="hardware_interfaces" groups="pdk,sysui-studio" remote="evo" />
+  <project path="hardware/libhardware" name="hardware_libhardware" groups="pdk" remote="evo" />
+
+  <!-- Infrastructure -->
+  <project path="evolution/manifest" name="manifest" remote="evo" />
+
+  <!-- Kernel -->
+  <project path="kernel/configs" name="kernel_configs" groups="vts,pdk" remote="evo" />
+
+  <!-- LineageOS additions -->
+  <project path="hardware/lineage/compat" name="hardware_lineage_compat" remote="evo" />
+
+  <!-- Packages -->
+  <!--<project path="packages/apps/ColumbusService" name="packages_apps_ColumbusService" remote="evo" />-->
+  <project path="packages/apps/EvoEgg" name="packages_apps_EvoEgg" remote="evo" />
+  <project path="packages/apps/Launcher3" name="packages_apps_Launcher3" groups="pdk-fs,sysui-studio,pdk-cw-tvc" remote="evo" />
+  <project path="packages/apps/Settings" name="packages_apps_Settings" groups="pdk-fs,pdk-cw-tvc,sysui-studio" remote="evo" />
+  <project path="packages/modules/Bluetooth" name="packages_modules_Bluetooth" groups="pdk" remote="evo" />
+  <project path="packages/modules/Connectivity" name="packages_modules_Connectivity" groups="pdk-cw-fs,pdk-fs" remote="evo" />
+  <project path="packages/modules/Wifi" name="packages_modules_Wifi" groups="pdk-cw-fs,pdk-fs,sysui-studio" remote="evo" />
+
+  <!-- Platform -->
+  <project path="platform_testing" name="platform_testing" groups="pdk-fs,pdk-cw-fs,cts,sysui-studio" remote="evo" />
+
+  <!-- Sepolicy -->
+  <project path="device/lineage/sepolicy" name="device_evolution_sepolicy" remote="evo" />
+
+  <!-- System -->
+  <project path="system/bpf" name="system_bpf" groups="pdk" remote="evo" />
+  <project path="system/core" name="system_core" groups="pdk" remote="evo" />
+  <project path="system/libhidl" name="system_libhidl" groups="pdk,sysui-studio" remote="evo" />
+  <project path="system/libhwbinder" name="system_libhwbinder" groups="pdk" remote="evo" />
+  <project path="system/media" name="system_media" groups="pdk" remote="evo" />
+  <project path="system/security" name="system_security" groups="pdk" remote="evo" />
+  <project path="system/sepolicy" name="system_sepolicy" groups="pdk" remote="evo" />
+  <project path="system/tools/mkbootimg" name="system_tools_mkbootimg" groups="pdk" remote="evo" />
+  <project path="system/update_engine" name="system_update_engine" groups="pdk" remote="evo" />
+  <project path="system/vold" name="system_vold" groups="pdk" remote="evo" />
+
+  <!-- Vendor -->
+  <project path="vendor/extras" name="vendor_extras" remote="evo" />
+  <project path="vendor/google/overlays/ThemeIcons" name="vendor_google_overlays_ThemeIcons" remote="evo" />
+  <project path="vendor/gms" name="vendor_gms" remote="evo-codeberg" clone-depth="1" />
+  <project path="vendor/lineage" name="vendor_evolution" remote="evo" />
+  <project path="vendor/pixel-style" name="vendor_pixel-style" remote="evo" />
+
+  <!-- CodeLinaro additions -->
+  <project path="vendor/qcom/opensource/dataservices" name="LineageOS/android_vendor_qcom_opensource_dataservices" groups="qcom,lanai-vendor" remote="LineageOS" />
+</manifest>
