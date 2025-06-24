@@ -34,3 +34,14 @@ jobs:
         npm install
         npm run build --if-present
         npm test
+        - name: Grant execute permission for gradlew
+  run: chmod +x ./gradlew
+
+- name: Build with Gradle
+  run: ./gradlew build
+
+- name: Run Lint
+  run: ./gradlew lint
+
+- name: Run Unit Tests
+  run: ./gradlew test
